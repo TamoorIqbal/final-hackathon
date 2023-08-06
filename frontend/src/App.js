@@ -16,6 +16,7 @@ import Login from "./components/Login";
 
 import axios from "axios";
 import Cart from "./components/Products/Cart.jsx";
+import UserOrders from "./components/Products/UserOrders.jsx";
 
 function App() {
   const { setUser, user } = useContext(MyContext);
@@ -115,6 +116,20 @@ function App() {
             ) : user ? (
               <>
                 <Cart showToast={showToast} />
+              </>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+         <Route
+          path="/order"
+          element={
+            loading ? (
+              <Loading isLoading={loading} />
+            ) : user ? (
+              <>
+                <UserOrders showToast={showToast} />
               </>
             ) : (
               <Navigate to="/login" />

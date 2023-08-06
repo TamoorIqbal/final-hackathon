@@ -35,10 +35,10 @@ const sideArray = [
     name: "Cart",
     to: "/cart",
   },
-  // {
-  //   name: "Privacy",
-  //   to: "/privacy",
-  // },
+  {
+    name: "my-order",
+    to: "/order",
+  },
 ];
 
 const navStyle = {

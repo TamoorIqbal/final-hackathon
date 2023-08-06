@@ -16,8 +16,10 @@ import { fetchCart, removeProductFromCart } from "../../store/cartSlice.js";
 import Loading from "../../utils/Loading";
 import { baseUrl } from "../../utils/constants.js";
 import { createOrder } from "../../store/orderSlice.js";
+import { useNavigate } from "react-router-dom";
 const Cart = ({ showToast }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { items, status, error } = useSelector((state) => state.cart);
 
   useEffect(() => {
@@ -29,8 +31,6 @@ const Cart = ({ showToast }) => {
     address: "",
     phoneNumber: "",
   });
-
-  const [paymentMethod, setPaymentMethod] = useState("COD");
 
   const handleShippingDetailsChange = (field, value) => {
     setShippingDetails((prevDetails) => ({
@@ -63,6 +63,7 @@ const Cart = ({ showToast }) => {
       // Handle success and reset cart
       showToast("Order placed successfully");
       dispatch(fetchCart());
+      navigate("/");
     } catch (error) {
       console.error("Error placing order:", error);
       showToast("Failed to place order");

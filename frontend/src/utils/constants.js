@@ -6,5 +6,5 @@
 
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://mern-app-yrcb.vercel.app/api/v1"
+    ? "final-hackathon-alpha.vercel.app/api/v1"
     : "http://localhost:4000/api/v1";

@@ -69,7 +69,7 @@ const styles = {
     marginBottom: "16px",
     display: "flex",
     alignItems: "center",
-    justifyContent:"center"
+    justifyContent: "center",
   },
   filterLabel: {
     marginRight: "8px",
@@ -126,7 +126,7 @@ const AllProducts = ({ showToast }) => {
   }, [dispatch]);
 
   const categories = {};
-  products.forEach((product) => {
+  products?.forEach((product) => {
     if (!categories[product.category]) {
       categories[product.category] = [];
     }
@@ -163,7 +163,7 @@ const AllProducts = ({ showToast }) => {
           <Box
             sx={{
               border: "2px solid white",
-              borderRadius:"10px",
+              borderRadius: "10px",
               p: 2,
             }}
           >
